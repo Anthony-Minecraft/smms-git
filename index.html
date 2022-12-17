@@ -3,16 +3,29 @@
         <title>SMMS | Server Logs</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier">
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/myriware.css">
         <script>
             window.onload = function() {
-                document.getElementById("Log").innerHTML = LoadDoc("./screen").replaceAll("\n", "\n<br>\n");
+                reloadLog();
             };
+            function reloadLog() {
+                document.getElementById("Log").innerHTML = '';
+                document.getElementById("Log").innerHTML = LoadDoc("./screen", document.getElementById('reloadProgress')).replaceAll("\n", "\n<br>\n");
+            }
         </script>
         <script src="./javascript/ajax.js"></script>
     </head>
-    <body class="no-push">
-        <div class="x-75 y-full left cdiv-padding">
-            <p id="Log" class="no-margin cdiv-padding console-type font-Courier rounding-standard"></p>
+    <body class="no-push font-Courier">
+        <div class="x-75 y-full left no-push">
+            <p id="Log" class="console-type y-full font-size-12"></p>
+        </div>
+        <div class="x-25 y-full right no-push">
+            <button class="left" onclick="reloadLog()">Reload Logs</button>
+            <meter id="reloadProgress" value="0" min="0" max="3"></meter>
+            <br>
+            <h2>Smithville Modified Minecraft Server Logs</h2>
+            <p>Here you can find the up-to-date logs of what happening on the server. Here you can find whatever errors are occuring. <b>This is still a work in progress</b></p>
+            <p><i>Powered by Myriware: Server Solutions [MMS]</i></p>
         </div>
     </body>
 </hmtl>
