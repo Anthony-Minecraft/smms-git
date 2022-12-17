@@ -1,0 +1,37 @@
+.no-push {
+    margin: 0;
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+.x-75 {
+    width: 75%;
+}
+
+.y-full {
+    height: 100%;
+}
+
+.left {
+    float: left;
+}
+
+.console-type {
+    color: white;
+    background-color: black;
+}
+
+.font-Courier {
+    font-family: 'Courier', serif;
+    font-size: 12px;
+}
+
+.cdiv-padding {
+    padding: 5px;
+}
+
+.rounding-standard {
+    border-radius: 5px;
+}
