@@ -1,30 +1,18 @@
 <hmtl>
     <head>
         <title>SMMS | Server Logs</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier">
+        <link rel="stylesheet" href="./css/index.css">
         <script>
             window.onload = function() {
-                document.getElementById("Log").innerHTML = LoadDoc("./screen");
+                document.getElementById("Log").innerHTML = LoadDoc("./screen").replaceAll("\n", "\n<br>\n");
             };
         </script>
+        <script src="./javascript/ajax.js"></script>
     </head>
-    <body>
-        <pre id="Log">
-
-        </pre>
-        <style>
-
-        </style>
-        <script>
-            function LoadDoc(URL, info) {
-                let Info = "";
-                var xhttp = new XMLHttpRequest();
-                xhttp.onload = function() {
-                    Info = this.responseText;
-                };
-                xhttp.open("POST", URL, false);
-                xhttp.send();
-                return Info;
-            }
-        </script>
+    <body class="no-push">
+        <div class="x-75 y-full left cdiv-padding">
+            <p id="Log" class="no-margin cdiv-padding console-type font-Courier rounding-standard"></p>
+        </div>
     </body>
 </hmtl>
