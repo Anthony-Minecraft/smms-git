@@ -1,0 +1,30 @@
+<hmtl>
+    <head>
+        <title>SMMS | Server Logs</title>
+        <script>
+            window.onload = function() {
+                document.getElementById("Log").innerHTML = LoadDoc("./screen");
+            };
+        </script>
+    </head>
+    <body>
+        <pre id="Log">
+
+        </pre>
+        <style>
+
+        </style>
+        <script>
+            function LoadDoc(URL, info) {
+                let Info = "";
+                var xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    Info = this.responseText;
+                };
+                xhttp.open("POST", URL, false);
+                xhttp.send();
+                return Info;
+            }
+        </script>
+    </body>
+</hmtl>
