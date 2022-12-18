@@ -32,15 +32,6 @@
     background-color: black;
 }
 
-.font-Courier {
-    font-family: 'Courier', serif;
-    font-size: 12px;
-}
-
-.font-size-12 {
-    font-size: 12px;
-}
-
 #Log {
     margin: 0;
     overflow-y: auto;
