@@ -2,7 +2,7 @@
 session_start();
 $conn_servername = "indyandy.net";
 $conn_username = "indyandy_myriware";
-$conn_password = file_get_contents("../data/_");
+$conn_password = trim(file_get_contents("../data/_"));
 
 $login_username = trim($_POST["username"]);
 
@@ -17,7 +17,7 @@ try {
   foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $key=>$value) {
     $login_time = date('Y-m-l-d') . ' ' . date('H:i:s');
     if ($value["PASSWORD"] == $_POST["password"]) {
-      file_put_contents('../data/login_logs', "User " . $value["UUID"] . " [$login_username] successfully logged in on $login_time\n");
+      file_put_contents('../data/login_logs', "User " . $value["UUID"] . " [$login_username] successfully logged in on $login_time\n",FILE_APPEND);
       $found = true;
       $ID_array = array(
         "UUID"=>$value["UUID"],
@@ -51,7 +51,7 @@ try {
 $conn = null;
 if (!$found) {
   file_put_contents('../data/login_logs', "User tried to use '" . $_POST["password"] . "' to log into '$login_username' on $login_time (ACCOUNT DOES NOT EXIST)\n", FILE_APPEND);
-  header("Location: ../index.html?error=incorrect", FILE_APPEND);
+  header("Location: ../index.html?error=incorrect");
 }
 
 ?>
