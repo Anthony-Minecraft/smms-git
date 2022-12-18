@@ -1,31 +1,17 @@
-<hmtl>
+<html>
     <head>
-        <title>SMMS | Server Logs</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier">
         <link rel="stylesheet" href="./css/index.css">
         <link rel="stylesheet" href="./css/myriware.css">
-        <script>
-            window.onload = function() {
-                reloadLog();
-            };
-            function reloadLog() {
-                document.getElementById("Log").innerHTML = '';
-                document.getElementById("Log").innerHTML = LoadDoc("./screen", document.getElementById('reloadProgress')).replaceAll("\n", "\n<br>\n");
-            }
-        </script>
-        <script src="./javascript/ajax.js"></script>
+        <link rel="stylesheet" href="./css/fonts.css">
     </head>
-    <body class="no-push font-Courier">
-        <div class="x-75 y-full left no-push">
-            <p id="Log" class="console-type y-full font-size-12"></p>
-        </div>
-        <div class="x-25 y-full right no-push">
-            <button class="left" onclick="reloadLog()">Reload Logs</button>
-            <meter id="reloadProgress" value="0" min="0" max="3"></meter>
-            <br>
-            <h2>Smithville Modified Minecraft Server Logs</h2>
-            <p>Here you can find the up-to-date logs of what happening on the server. Here you can find whatever errors are occuring. <b>This is still a work in progress</b></p>
-            <p><i>Powered by Myriware: Server Solutions [MMS]</i></p>
-        </div>
+    <body class="font-Courier">
+        <h2>SMMS Portal Login Page</h2>
+        <form method="post" action="./php/login.php">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="text" name="password"><br>
+            <button type="submit">Enter</button>
+        </form>
+        <p><b>Why Do I see This?</b> As part of Myriware: Server Solutions, we want to make sure both clients and their users have safty. By logging into a Myriware account, clients and Myriware can monitor all access to sensitive information. <b>Don't have an account?</b> Make one <a href="https://myriware.anthonysmith18.repl.co/">Here</a></p>
     </body>
-</hmtl>
+</html>
