@@ -1,8 +1,14 @@
+/* Font Types */
 .font-Courier {
     font-family: 'Courier', serif;
     font-size: 12px;
 }
 
+.font-Nunito {
+    font-family: 'Nunito', serif;
+    font-size: 12px;
+}
+/* Font Sizes */
 .font-size-12 {
     font-size: 12px;
 }

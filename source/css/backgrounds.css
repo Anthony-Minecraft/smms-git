@@ -1,0 +1,17 @@
+.backgroundImage01 {
+    background-image: url("../image/background/backgroundImage01.png");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.backgroundImage02 {
+    background-image: url("../image/background/backgroundImage02.png");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}

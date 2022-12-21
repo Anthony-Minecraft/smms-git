@@ -1,0 +1,21 @@
+/* Hyperlinks */
+a {
+    border-radius: 1px;
+    background-color: #ffffff;
+    border-bottom: 2px solid lightblue;
+    outline: none;
+    transition: all 0.6s;
+    text-decoration: none;
+    padding: 0 4px 0 4px;
+    color: black;
+}
+
+a:hover {
+    background-color: #ebebeb;
+    border-bottom: 2px solid darkblue;
+}
+
+a:focus {
+    background-color: #b0b0b0;
+    border-bottom: 2px solid darkblue;
+}

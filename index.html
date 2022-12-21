@@ -1,17 +1,109 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier">
-        <link rel="stylesheet" href="./css/index.css">
-        <link rel="stylesheet" href="./css/myriware.css">
-        <link rel="stylesheet" href="./css/fonts.css">
-    </head>
-    <body class="font-Courier">
-        <h2>SMMS Portal Login Page</h2>
-        <form method="post" action="./php/login.php">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="text" name="password"><br>
-            <button type="submit">Enter</button>
-        </form>
-        <p><b>Why Do I see This?</b> As part of Myriware: Server Solutions, we want to make sure both clients and their users have safty. By logging into a Myriware account, clients and Myriware can monitor all access to sensitive information. <b>Don't have an account?</b> Make one <a href="https://myriware.anthonysmith18.repl.co/">Here</a></p>
-    </body>
+  <head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="source/css/_packaged.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <script src="source/javascript/pages/index.js"></script>
+    <script src="source/javascript/url.js"></script>
+    <script>
+        window.onload = function() {
+            giveErrorMessage();
+        };
+    </script>
+</head>
+  <body class="backgroundImage01">
+    <div class="card" style="height:100%;box-sizing: border-box;">
+      <div class="container">
+        <div class="master-grid" style="overflow-y:auto;">
+          <div>
+            <!--news-->
+            <div id="newsBox" style="overflow:auto;">
+              <div id="error"></div>
+              <h2>Myriware News</h2>
+              <h3>HOST MIGRATION</h3>
+              <p>Welcome to the new Myriware Site! We are hoping to futher our function with the migration. We hope that you are patient during this process.</p>
+            </div>
+          </div>
+          <div>
+            <!--create account-->
+            <!--form-->
+            <form action="myriware/account/create.php" method="post">
+            <div class="account-create-grid">
+              <di class="account-create-span"><p>Account Name</p></di>
+              <div><input type="text" id="FirstName" name="FirstName" placeholder="First" required></div>
+              <div><input type="text" id="MidName" name="MidName" placeholder="Middle (Optional)"></div>
+              <div><input type="text" id="LastName" name="LastName" placeholder="Last" required></div>
+              <div class="account-create-span"><p>Account Details</p></div>
+              <div><input type="text" id="CreateUsername" name="CreateUsername" placeholder="Username" required></div>
+              <div><input type="password" id="CreatePassword" name="CreatePassword" placeholder="Password" required></div>
+              <div><input type="password" id="VerifyPassword" onkeyup="checkInput()" placeholder="Re-enter Password"></div>
+              <div class="account-create-span"><input type="email" id="Email" name="Email" placeholder="Email" style="width:100%" required></div>
+              <div><button type="submit" id="CreateSubmit">Create Account</button></div>
+            </div>
+            </form>
+            <!--end form-->
+          </div>
+          <div>
+            <!--login-->
+            <hr>
+            <h2>Login Portal</h2>
+            <!--form-->
+            <form action="myriware/account/login.php" method="post" style='text-align:center;'>
+              <input type="hidden" value="" id="URLInput" name="URLInput">
+              <table>
+                <tr>
+                  <td><input type="text" placeholder="Username" id="username" name="username" class="login-input" required></td>
+                  <td><input type="password" placeholder="Enter Password" id="password" name="password" class="login-input" required></td>
+                </tr>
+                <tr>
+                  <td><button type="submit" id="loginSubmit" class="login-input">Login</button></td>
+                  <td>Show Password <input type="checkbox" name="showpassword" onclick="showpsw('password')" style="width:auto;"></td>
+                </tr>
+              </table>
+            </form>
+            <!--end form-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    .account-create-grid {
+      display: grid;
+      grid-template-columns: auto auto auto;
+    }
+
+    .account-create-span {
+      grid-column: 1 / span 3;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .master-grid {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .account-create-grid {
+        display: grid;
+        grid-template-columns: auto;
+      }
+
+      .account-create-span {
+        grid-column: 1 / span 1;
+      }
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .master-grid {
+        display: grid;
+        grid-template-columns: auto;
+      }
+    }
+  </style>
 </html>

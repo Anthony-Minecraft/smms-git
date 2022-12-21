@@ -1,0 +1,9 @@
+@import url('backgrounds.css');
+@import url('containers.css');
+@import url('fonts.css');
+@import url('inputs.css');
+@import url('links.css');
+
+* {
+    font-family: 'Nunito';
+}
