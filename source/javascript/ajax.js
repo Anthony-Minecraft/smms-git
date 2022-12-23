@@ -15,7 +15,7 @@ function LoadDoc(URL, meterBar) {
         Info = this.responseText;
         move_progress(using_meter, meterBar, 3);
     };
-    xhttp.open("POST", URL, false);
+    xhttp.open("GET", URL, false);
     move_progress(using_meter, meterBar, 2);
     xhttp.send();
     return Info;

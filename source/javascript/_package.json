@@ -2,6 +2,7 @@
     "Default": [
         "ajax.js",
         "url.js",
-        "validate.js"
+        "validate.js",
+        "background.js"
     ]
 }

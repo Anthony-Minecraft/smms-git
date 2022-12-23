@@ -14,7 +14,7 @@ foreach(json_decode(file_get_contents('../../source/javascript/_package.json'), 
         echo "        <script src=\"../../source/javascript/$js_file\"></script>\n";
 }
 ?>
-        <script>checkLogin();</script>
+        <script>checkLogin(); window.onload = function() { checkForBackground(); };</script>
         <!--Custom JS for this page-->
 <?php
 if ($files_needed[2]) {

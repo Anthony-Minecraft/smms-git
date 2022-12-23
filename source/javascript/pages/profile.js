@@ -7,3 +7,8 @@ function fillInformation() {
     document.getElementById('Username').innerText = login_info['ID']['Username'];
     document.getElementById('UUID').innerText = login_info['ID']['UUID'];
 }
+
+function setBackgroundImage(image) {
+    LoadDoc(`../../source/php/change_background.php?image=${image}`);
+    checkForBackground();
+}

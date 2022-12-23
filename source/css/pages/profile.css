@@ -1,4 +1,4 @@
-.name-container p {
+.name-container p, .name-container div {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -6,4 +6,21 @@
 .name-container h2 {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+.bg-image-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 5px;
+    
+}
+
+.bg-image-container img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.bg-image-container div {
+    text-align: center;
 }
