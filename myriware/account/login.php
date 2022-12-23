@@ -28,7 +28,7 @@ try {
       $found = true;
       $ID_array = array(
         "UUID"=>$value["UUID"],
-        "UserName"=>trim($login_username)
+        "Username"=>trim($login_username)
       );
       $name_array = array(
         "FirstName"=>$value["FIRSTNAME"],
@@ -39,6 +39,7 @@ try {
       $_SESSION['login'] = array(
         "ID"=>$ID_array,
         "Name"=>$name_array,
+        "Background"=>null,
         "Log_In_Time"=>$login_time
       );
       if ($_POST["URLInput"] == "") {
