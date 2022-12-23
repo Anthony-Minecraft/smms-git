@@ -1,0 +1,7 @@
+{
+    "Default": [
+        "ajax.js",
+        "url.js",
+        "validate.js"
+    ]
+}

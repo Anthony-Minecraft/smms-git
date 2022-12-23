@@ -3,6 +3,7 @@
 @import url('fonts.css');
 @import url('inputs.css');
 @import url('links.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 * {
     font-family: 'Nunito';
