@@ -1,0 +1,1 @@
+<?php file_put_contents('../../../commons/' . trim($_GET['id']) . '/' . trim($_GET['file_name']), $_POST['file_content']); ?>

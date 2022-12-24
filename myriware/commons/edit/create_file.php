@@ -1,0 +1,1 @@
+<?php file_put_contents('../../../commons/' . trim($_GET['common_id']) . '/' . trim($_GET['file_name']) . '.html', ''); ?>

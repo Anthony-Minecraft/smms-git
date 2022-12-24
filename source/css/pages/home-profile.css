@@ -8,19 +8,18 @@
     margin-bottom: 0;
 }
 
-.bg-image-container {
+.dual-container {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
     column-gap: 5px;
-    
 }
 
-.bg-image-container img {
+.dual-container img {
     width: 100%;
     border-radius: 5px;
 }
 
-.bg-image-container div {
+.center-align p {
     text-align: center;
 }

@@ -12,7 +12,7 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   //start
   //check if it is a new account logging in
-  if ($_GET['new_yes'] === 'yes') {
+  if ($_GET['new_user'] === 'yes') {
     $login_password = $_GET['password'];
     $stmt = $conn->prepare("SELECT FIRSTNAME, LASTNAME, MIDNAME, `PASSWORD`, USERNAME FROM UserData WHERE UUID='" . $_GET['uuid'] . "'");
   } else {
@@ -48,7 +48,7 @@ try {
         header('Location: ' . $_POST["URLInput"]);
       }
     } else {
-      file_put_contents('../../data/login_logs', "User tried to use '" . $login_password . "' to log into '$login_username' on $login_time (INCORRECT PASSWORD)\n", FILE_APPEND);
+      file_put_contents('../../data/login_logs', "User tried to use '$login_password' to log into '$login_username' on $login_time (INCORRECT PASSWORD)\n", FILE_APPEND);
       header("Location: ../../index.html?error=incorrect");
     }
   }
@@ -58,7 +58,7 @@ try {
 
 $conn = null;
 if (!$found) {
-  file_put_contents('../../data/login_logs', "User tried to use '" . $login_password . "' to log into '$login_username' on $login_time (ACCOUNT DOES NOT EXIST)\n", FILE_APPEND);
+  file_put_contents('../../data/login_logs', "User tried to use '$login_password' to log into '$login_username' on $login_time (ACCOUNT DOES NOT EXIST)\n", FILE_APPEND);
   header("Location: ../../index.html?error=incorrect");
 }
 

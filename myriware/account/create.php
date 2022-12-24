@@ -66,10 +66,5 @@ try {
 
 $conn = null;
 
-// other
-if ($email != null) {
-  header("Location: create_mail.php?email=" . $email);
-} else {
-  header("Location: ./login.php?new_user=yes&uuid=$user_uuid&password=$password");
-}
+header("Location: ./login.php?new_user=yes&uuid=$user_uuid&password=$password");
 ?>
