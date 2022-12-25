@@ -1,3 +1,5 @@
+const url_params = parseURLParams(document.location.href);
+
 function load() {
     const url_params = parseURLParams(document.location.href);
     return JSON.parse(LoadDoc('edit/get_common_info.php?id=' + url_params.common_id,null))[0];
@@ -5,12 +7,21 @@ function load() {
 
 function changeTitle(common_info) {
     document.getElementsByTagName('title')[0].innerText = 'Editing Common ' + common_info.CommonName;
+    if(!window.location.hash == '') {
+        openFile(window.location.hash.replace('#', ''));
+    }
 }
 
 function createFile() {
     const url_params = parseURLParams(document.location.href);
     let new_file_name = document.getElementById('newFileName').value;
     LoadDoc('edit/create_file.php?file_name=' + new_file_name + '&common_id=' + url_params.common_id, null);
+    updateFiles();
+}
+
+function removeFile() {
+    const url_params = parseURLParams(document.location.href);
+    LoadDoc('edit/remove_file.php?file_name=' + document.getElementById('currentFile').value + '&common_id=' + url_params.common_id, null);
     updateFiles();
 }
 
@@ -31,9 +42,40 @@ function saveFile(fileName) {
     submitForm(`edit/save_file.php?file_name=${fileName}&id=${url_params.common_id}`, 'file_content=' + content);
 }
 
+function openPage() {
+    window.open(`../../commons/${url_params.common_id}/${document.getElementById('currentFile').value}`, '_blank');
+}
+
 function openFile(fileName) {
+    document.getElementById('fileEditor').style.display = 'block';
+    document.getElementById('commonInfo').style.display = 'none';
     const url_params = parseURLParams(document.location.href);
     saveFile(document.getElementById('currentFile').value);
     document.getElementById('currentFile').value = fileName;
     document.getElementById('fileEditor').value = LoadDoc(`edit/get_file_contents.php?id=${url_params.common_id}&file_name=${fileName}`, null);
+    window.location.href = '#' + fileName;
+}
+
+function openCommonData() {
+    window.location.href = '#CommonInfo';
+    document.getElementById('fileEditor').style.display = 'none';
+    document.getElementById('commonInfo').style.display = 'block';
+    saveFile(document.getElementById('currentFile').value);
+    const common_info = load();
+    const url_params = parseURLParams(document.location.href);
+    const owner_doc = LoadDoc(`../account/get_record.php?uuid=${common_info.CommonOwner}`,null);
+    const owner_data = JSON.parse(owner_doc);
+    const display_info = `
+<h3>Common Info</h3>
+<p>Name: ${common_info.CommonName}</p>
+<p>Description: ${common_info.CommonDescription}</p>
+<p>ID: ${url_params.common_id}</p>
+<p class='indent'>Owner: ${common_info.CommonOwner}</p>
+<p class='indent'>Name: ${owner_data.Name.FullName}</p>
+<p class='indent'>User: ${owner_data.ID.Username}</p>
+<p>Invite Link: ${window.location.hostname}/myriware/commons/join.php?id=${url_params.common_id}</p>
+<p>Veiw link: ${window.location.hostname}/commons/${url_params.common_id}/[page name]
+<h3>Other Commoners</h3>
+    `;
+    document.getElementById('commonInfo').innerHTML = display_info;
 }

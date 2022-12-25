@@ -1,3 +1,4 @@
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS packaged defaults-->
         <link rel="stylesheet" href="../../source/css/_packaged.css">
         <!--Custom CSS for this page-->

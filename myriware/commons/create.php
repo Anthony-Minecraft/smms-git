@@ -44,7 +44,7 @@ $common_ID = gen_uuid();
 
 $conn_servername = "indyandy.net";
 $conn_username = "indyandy_myriware";
-$conn_password = file_get_contents("../../data/_");
+$conn_password = trim(file_get_contents("../../data/_"));
 
 //create data
 try {

@@ -8,6 +8,11 @@
     font-family: 'Nunito', serif;
     font-size: 12px;
 }
+
+.font-Share_Tech_Mono {
+    font-family: 'Share Tech Mono' !important;
+    font-size: 15px;
+}
 /* Font Sizes */
 .font-size-12 {
     font-size: 12px;
