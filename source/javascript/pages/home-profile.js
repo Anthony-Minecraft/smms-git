@@ -38,6 +38,7 @@ function fillCommons() {
                     <div>
                         <p>Common ID: ${registered_commons.Looker[i]}</p>
                         <p>Role: Looker</p>
+                        <a href='../commons/veiw.php?common_id=${registered_commons.Admin[i]}'>Veiw</a>
                     </div>`;
     }
 }
