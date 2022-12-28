@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Editing Common</title>
-        <?php $files_needed = array('commons-edit', true, true, 'changeTitle(load()); updateFiles();'); include "../../source/header.php"; ?>
+        <?php $files_needed = array('commons-veiw', 'commons-edit', true, 'changeTitle(load()); updateFiles();'); include "../../source/header.php"; ?>
     </head>
     <body>
         <div class='dual-container'>
@@ -14,19 +14,6 @@
                 <button
                     style='font-size:10px;width:70%'
                     onclick='openPage()'>Go to page</button>
-                <br>
-                <button
-                    style='font-size:10px;width:15%;text-align:center;margin:0;padding:0;'
-                    onclick='createFile()'>Add</button><input
-                    style='font-size:10px;width:85%;margin:0;padding:0;'
-                    type='text'
-                    name='newFileName'
-                    id='newFileName'>
-                <button
-                    style='font-size:10px;width:70%;'
-                    onclick='saveFile(document.getElementById("currentFile").value);'>Save</button><button
-                    style='font-size:10px;width:30%;'
-                    onclick='removeFile()'>Remove</button>
                 <br>
                 <p
                     style='margin:0;padding:0;'
@@ -45,7 +32,8 @@
                 <textarea
                     id='fileEditor'
                     class='font-Share_Tech_Mono'
-                    style='display:block;'></textarea>
+                    style='display:block;'
+                    readonly></textarea>
                 <div 
                     id='commonInfo'
                     class='font-Share_Tech_Mono'

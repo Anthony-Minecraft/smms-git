@@ -1,9 +1,12 @@
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS packaged defaults-->
         <link rel="stylesheet" href="../../source/css/_packaged.css">
         <!--Custom CSS for this page-->
 <?php
-if ($files_needed[1]) {
+if ($files_needed[1] === true) {
         echo "        <link rel=\"stylesheet\" href=\"../../source/css/pages/" . $files_needed[0] . ".css\">\n";
+} elseif (gettype($files_needed[1]) === "string") { 
+        echo "        <link rel=\"stylesheet\" href=\"../../source/css/pages/" . $files_needed[1] . ".css\">\n";
 } else {
         echo "        <!--No additional CSS-->\n";
 }
