@@ -31,7 +31,7 @@
                 </div>
                 <h1>Commons</h1>
                 <div class='dual-container' id='registeredCommons'>
-                    <div>
+                    <div class="border">
                         <h3>Create</h3>
                         <form method='post' action='../commons/create.php'>
                             <label for='Name'>Common Name</label><input type='text' name='Name'><br>

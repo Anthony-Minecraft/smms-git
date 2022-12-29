@@ -19,7 +19,7 @@ function fillCommons() {
     const registered_commons = JSON.parse(LoadDoc('../commons/get_registered.php',null));
     for (let i=0; i<registered_commons.Admin.length; i++) {
         commons_area.innerHTML += `
-                    <div>
+                    <div class="border">
                         <p>Common ID: ${registered_commons.Admin[i]}</p>
                         <p>Role: Admin</p>
                         <a href='../commons/edit.php?common_id=${registered_commons.Admin[i]}'>Edit</a>
@@ -27,7 +27,7 @@ function fillCommons() {
     }
     for (let i=0; i<registered_commons.Editor.length; i++) {
         commons_area.innerHTML += `
-                    <div>
+                    <div class="border">
                         <p>Common ID: ${registered_commons.Editor[i]}</p>
                         <p>Role: Editor</p>
                         <a href='../commons/edit.php?common_id=${registered_commons.Admin[i]}'>Edit</a>
@@ -35,7 +35,7 @@ function fillCommons() {
     }
     for (let i=0; i<registered_commons.Looker.length; i++) {
         commons_area.innerHTML += `
-                    <div>
+                    <div class="border">
                         <p>Common ID: ${registered_commons.Looker[i]}</p>
                         <p>Role: Looker</p>
                         <a href='../commons/veiw.php?common_id=${registered_commons.Admin[i]}'>Veiw</a>
