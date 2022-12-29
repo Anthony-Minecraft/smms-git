@@ -30,7 +30,7 @@ function fillCommons() {
                     <div class="border">
                         <p>Common ID: ${registered_commons.Editor[i]}</p>
                         <p>Role: Editor</p>
-                        <a href='../commons/edit.php?common_id=${registered_commons.Admin[i]}'>Edit</a>
+                        <a href='../commons/edit.php?common_id=${registered_commons.Editor[i]}'>Edit</a>
                     </div>`;
     }
     for (let i=0; i<registered_commons.Looker.length; i++) {
@@ -38,7 +38,7 @@ function fillCommons() {
                     <div class="border">
                         <p>Common ID: ${registered_commons.Looker[i]}</p>
                         <p>Role: Looker</p>
-                        <a href='../commons/veiw.php?common_id=${registered_commons.Admin[i]}'>Veiw</a>
+                        <a href='../commons/view.php?common_id=${registered_commons.Looker[i]}'>View</a>
                     </div>`;
     }
 }
