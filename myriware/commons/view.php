@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>Editing Common</title>
-        <?php $files_needed = array('commons-veiw', 'commons-edit', true, 'changeTitle(load()); updateFiles();'); include "../../source/header.php"; ?>
+        <title>View Common</title>
+        <?php $files_needed = array('commons-view', 'commons-edit', true, 'changeTitle(load()); updateFiles();'); include "../../source/header.php"; ?>
     </head>
     <body>
         <div class='dual-container'>
