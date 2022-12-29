@@ -8,7 +8,11 @@ function load() {
 function changeTitle(common_info) {
     document.getElementsByTagName('title')[0].innerText = 'Editing Common ' + common_info.CommonName;
     if(!window.location.hash == '') {
-        openFile(window.location.hash.replace('#', ''));
+        if (window.location.hash === 'CommonInfo') {
+            openCommonData();
+        } else {
+            openFile(window.location.hash.replace('#', ''));
+        }
     }
 }
 
@@ -76,6 +80,23 @@ function openCommonData() {
 <p>Invite Link: ${window.location.hostname}/myriware/commons/join.php?id=${url_params.common_id}</p>
 <p>Veiw link: ${window.location.hostname}/commons/${url_params.common_id}/[page name]
 <h3>Other Commoners</h3>
+<div id='OtherCommoners'></div>
     `;
     document.getElementById('commonInfo').innerHTML = display_info;
+    fillOtherCommers();
+}
+
+function fillOtherCommers() {
+    const url_params = parseURLParams(document.location.href);
+    const others_div = document.getElementById('OtherCommoners');
+    const others = JSON.parse(LoadDoc('edit/get_commoners.php?id=' + url_params.common_id, null));
+    for (let i=0; i<others.length; ++i) {
+        const other = others[i];
+        let fill_data = `
+<h4>${other.Profile.Name.FullName} | ${other.Role}</h4>
+<p>Username: ${other.Profile.ID.Username}</p>
+<p>UUID: ${other.Profile.ID.UUID}</p>
+        `;
+        others_div.innerHTML += fill_data;
+    }
 }
