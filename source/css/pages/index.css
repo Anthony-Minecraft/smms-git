@@ -1,44 +1,3 @@
-.no-push {
-    margin: 0;
-    padding: 0;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.x-75 {
-    width: 75%;
-}
-
-.x-25 {
-    width: 25%;
-}
-
-.y-full {
-    height: 100%;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-.console-type {
-    color: white;
-    background-color: black;
-}
-
-#Log {
-    margin: 0;
-    overflow-y: auto;
-    padding: 5px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
 
 .account-create-grid {
     display: grid;
@@ -56,6 +15,8 @@
   .master-grid {
     display: grid;
     grid-template-columns: auto auto;
+    column-gap: 5px;
+    row-gap: 5px;
   }
 
   @media only screen and (max-width: 1000px) {

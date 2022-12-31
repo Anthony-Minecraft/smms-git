@@ -6,3 +6,8 @@ function checkForBackground() {
         document.getElementsByTagName('body')[0].classList.add(login_info['background']);
     }
 }
+// !IMPORTANT! This function has requirements: 'ajax.js'
+function setBackgroundImage(image) {
+    LoadDoc(`../../source/php/change_background.php?image=${image}`);
+    checkForBackground();
+}

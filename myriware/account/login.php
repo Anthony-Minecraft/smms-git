@@ -14,27 +14,30 @@ try {
   //check if it is a new account logging in
   if ($_GET['new_user'] === 'yes') {
     $login_password = $_GET['password'];
-    $stmt = $conn->prepare("SELECT FIRSTNAME, LASTNAME, MIDNAME, `PASSWORD`, USERNAME FROM UserData WHERE UUID='" . $_GET['uuid'] . "'");
+    $stmt = $conn->prepare("SELECT FirstName, LastName, MidName, `Password`, UserName FROM UserData WHERE UUID='" . $_GET['uuid'] . "'");
   } else {
-    $stmt = $conn->prepare("SELECT FIRSTNAME, LASTNAME, MIDNAME, `PASSWORD`, UUID FROM UserData WHERE USERNAME='$login_username'");
+    $stmt = $conn->prepare("SELECT FirstName, LastName, MidName, `Password`, UUID FROM UserData WHERE UserName='$login_username'");
   }
   $stmt->execute();
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $found = false;
   foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $key=>$value) {
     $login_time = date('Y-m-l-d') . ' ' . date('H:i:s');
-    if ($value["PASSWORD"] == $login_password) {
-      file_put_contents('../data/login_logs', "User " . $value["UUID"] . " [$login_username] successfully logged in on $login_time\n",FILE_APPEND);
+    if ($value["Password"] == $login_password) {
+      if ($_GET['new_user'] === 'yes') {
+        $login_username = $value['Username'];
+      }
+      file_put_contents('../../data/login_logs', "User " . $value["UUID"] . " [" . $login_username . "] successfully logged in on $login_time\n",FILE_APPEND);
       $found = true;
       $ID_array = array(
         "UUID"=>$value["UUID"],
-        "Username"=>trim($login_username)
+        "Username"=>$login_username
       );
       $name_array = array(
-        "FirstName"=>$value["FIRSTNAME"],
-        "MidName"=>$value["MIDNAME"],
-        "LastName"=>$value["LASTNAME"],
-        "FullName"=>$value["FIRSTNAME"] . " " . $value["MIDNAME"] . " " . $value["LASTNAME"]
+        "FirstName"=>$value["FirstName"],
+        "MidName"=>$value["MidName"],
+        "LastName"=>$value["LastName"],
+        "FullName"=>$value["FirstName"] . " " . $value["MidName"] . " " . $value["LastName"]
       );
       $_SESSION['login'] = array(
         "ID"=>$ID_array,

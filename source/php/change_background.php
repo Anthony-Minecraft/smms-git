@@ -1,5 +1,5 @@
 <?php
 session_start();
-$new_img = $_GET['image'];
+$new_img = trim($_GET['image']);
 $_SESSION['login']['background'] = $new_img;
 ?>

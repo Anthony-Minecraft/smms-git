@@ -12,7 +12,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //start
     $stmt = $conn->prepare("
-SELECT Reg.CommonRole, Dat.USERNAME, Dat.FIRSTNAME, Dat.MIDNAME, Dat.LASTNAME, Dat.UUID
+SELECT Reg.CommonRole, Dat.Username, Dat.FirstName, Dat.MidName, Dat.LastName, Dat.UUID
 FROM CommonsRegistry Reg, UserData Dat
 WHERE Reg.CommonUser = Dat.UUID AND Reg.CommonID='$common_id' 
 ");
