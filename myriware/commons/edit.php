@@ -15,6 +15,7 @@
                 </div>
                 <hr>
                 <div id='directory'></div>
+                <meter id='progressBar' style='display:none;' min='0' max='0' value='0'></meter>
             </div>
             <!--editing area-->
             <div class='card' id='showArea'>
