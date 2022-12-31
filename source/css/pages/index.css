@@ -39,3 +39,39 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
+.account-create-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .account-create-span {
+    grid-column: 1 / span 3;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .master-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .account-create-grid {
+      display: grid;
+      grid-template-columns: auto;
+    }
+
+    .account-create-span {
+      grid-column: 1 / span 1;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .master-grid {
+      display: grid;
+      grid-template-columns: auto;
+    }
+  }

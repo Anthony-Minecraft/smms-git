@@ -4,7 +4,10 @@ session_start();
 $conn_servername = "indyandy.net";
 $conn_username = "indyandy_myriware";
 $conn_password = trim(file_get_contents("../../data/_"));
-
+//check for login
+if ($_SESSION == null) {
+    header('Location: ../../index.html?error=no_login&url=../commons/join.php%3Fid%3D' . $_GET['id']);
+}
 $common_ID = $_GET['id'];
 $common_user = $_SESSION['login']['ID']['UUID'];
 

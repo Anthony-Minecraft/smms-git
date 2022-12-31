@@ -1,6 +1,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS packaged defaults-->
         <link rel="stylesheet" href="../../source/css/_packaged.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!--Custom CSS for this page-->
 <?php
 if ($files_needed[1] === true) {
@@ -22,6 +23,8 @@ foreach(json_decode(file_get_contents('../../source/javascript/_package.json'), 
 <?php
 if ($files_needed[2]) {
         echo "        <script src=\"../../source/javascript/pages/" . $files_needed[0] . ".js\"></script>\n";
+} elseif (gettype($files_needed[2]) === "string") { 
+        echo "        <script src=\"../../source/javascript/pages/" . $files_needed[2] . ".js\"></script>\n";
 } else {
         echo "        <!--No additional JS-->\n";
 }

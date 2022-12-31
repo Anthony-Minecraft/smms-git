@@ -23,7 +23,8 @@ button {
     padding: 5px;
 }
 
-#directory p {
+#directory p, .utility p {
+    border-radius: 1px;
     margin: 0;
     padding: 0;
 }
@@ -33,8 +34,10 @@ button {
     padding: 0;
 }
 
-#directory p:hover, #commonInfo p:hover {
+#directory p:hover, #commonInfo p:hover, .utility p:hover {
     padding-left: 10px;
+    background-color: lightgoldenrodyellow;
+    border-left: solid 2px goldenrod;
 }
 
 #fileEditor {
@@ -49,4 +52,28 @@ button {
 
 h4 {
     margin: 0;
+}
+
+#tableManager button {
+    font-size: 13px;
+}
+
+#tableManager p {
+    margin: 0;
+}
+
+#tableManager div {
+    border-radius: 1px;
+    padding-left: 5px;
+}
+
+#tableManager div:hover {
+    padding-left: 10px;
+    background-color: lightgoldenrodyellow;
+    border-left: solid 2px goldenrod;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
 }

@@ -29,8 +29,27 @@ function openCommonData() {
 <p>Invite Link: ${window.location.hostname}/myriware/commons/join.php?id=${url_params.common_id}</p>
 <p>Veiw link: ${window.location.hostname}/commons/${url_params.common_id}/[page name]
 <h3>Other Commoners</h3>
+<div id='OtherCommoners'></div>
     `;
     document.getElementById('commonInfo').innerHTML = display_info;
+    fillOtherCommers()
+}
+
+function fillOtherCommers() {
+    const url_params = parseURLParams(document.location.href);
+    const others_div = document.getElementById('OtherCommoners');
+    const doc = LoadDoc('edit/get_commoners.php?id=' + url_params.common_id, null);
+    const others = JSON.parse(doc);
+    for (let i=0; i<others.length; ++i) {
+        const other = others[i];
+        const full_name = other.FIRSTNAME + ' ' + other.MIDNAME + ' ' + other.LASTNAME;
+        let fill_data = `
+<h4>${full_name} | ${other.CommonRole}</h4>
+<p>Username: ${other.USERNAME}</p>
+<p>UUID: ${other.UUID}</p>
+        `;
+        others_div.innerHTML += fill_data;
+    }
 }
 
 function updateFiles() {

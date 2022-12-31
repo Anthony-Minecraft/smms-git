@@ -7,3 +7,12 @@ function checkLogin() {
         document.location.href = '../../index.html?error=no_login';
     }
 }
+
+function showpsw(elementId) {
+    var field = document.getElementById(elementId);
+    if (field.type === "password") {
+        field.type = "text";
+    } else {
+        field.type = "password";
+    }
+}

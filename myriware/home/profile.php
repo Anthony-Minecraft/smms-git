@@ -31,11 +31,16 @@
                 </div>
                 <h1>Commons</h1>
                 <div class='dual-container' id='registeredCommons'>
-                    <div class="border">
-                        <h3>Create</h3>
+                    <div class="card" style='grid-column: 1 / span 2;'>
                         <form method='post' action='../commons/create.php'>
-                            <label for='Name'>Common Name</label><input type='text' name='Name'><br>
-                            <label for='Description'>Common Description (max 1000 chars)</label><br><textarea name='Description'></textarea><br>
+                            <input
+                                type='text'
+                                name='Name'
+                                placeholder='Common Name'><br>
+                            <textarea
+                                placeholder='Common Description (max 1000 chars)'
+                                name='Description'
+                                style='width:100%;height:60px;resize:vertical;'></textarea><br>
                             <button type='submit'>Create</button>
                         </form>
                     </div>

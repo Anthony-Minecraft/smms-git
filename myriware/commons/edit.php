@@ -7,37 +7,17 @@
         <div class='dual-container'>
             <!--navigation area saveFile(document.getElementById('currentFile').value);-->
             <div class='card'>
-                <h3 style='text-align: center;'>Files</h3>
-                <a
-                    style='font-size:10px;width:30%'
-                    href='../home/profile.php'>Home</a>
-                <button
-                    style='font-size:10px;width:70%'
-                    onclick='openPage()'>Go to page</button>
-                <br>
-                <button
-                    style='font-size:10px;width:15%;text-align:center;margin:0;padding:0;'
-                    onclick='createFile()'>Add</button><input
-                    style='font-size:10px;width:85%;margin:0;padding:0;'
-                    type='text'
-                    name='newFileName'
-                    id='newFileName'>
-                <button
-                    style='font-size:10px;width:70%;'
-                    onclick='saveFile(document.getElementById("currentFile").value);'>Save</button><button
-                    style='font-size:10px;width:30%;'
-                    onclick='removeFile()'>Remove</button>
-                <br>
-                <p
-                    style='margin:0;padding:0;'
-                    onclick='openCommonData()'>Common Data</p>
-                <div
-                    id='directory'>
-                    
+                <h3 style='text-align:center;'>Files</h3>
+                <div class='utility'>
+                    <p onclick='window.location = "../home/profile.php"'>Home</p>
+                    <p onclick='openCommonData()'>Common Data</p>
+                    <p onclick='openFileManager()'>File Manager</p>
                 </div>
+                <hr>
+                <div id='directory'></div>
             </div>
             <!--editing area-->
-            <div class='card'>
+            <div class='card' id='showArea'>
                 <input
                     type='hidden'
                     id='currentFile'
@@ -45,11 +25,20 @@
                 <textarea
                     id='fileEditor'
                     class='font-Share_Tech_Mono'
-                    style='display:block;'></textarea>
+                    style='display:block;resize:none;'></textarea>
                 <div 
                     id='commonInfo'
                     class='font-Share_Tech_Mono'
                     style='display:none;'></div>
+                <div 
+                    id='fileManager'
+                    class='font-Share_Tech_Mono'
+                    style='display:none;'>
+                    <h3>Files</h3>
+                    <button onclick='refresh()'>Refresh</button> | <button onclick='createFile()'>Add</button><input type='text' name='newFileName' id='newFileName'>
+                    <table id='tableManager' style='width:100%;'>
+                    </table>
+                </div>
             </div>
         </div>
     </body>
